@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu {
+            background-color: rgb(20, 241, 20);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid;
+            padding: 15px;
+            position: sticky;
+            top: 0px;
+        }
+
+        ul li {
+            display: inline;
+            list-style-type: none;
+            margin: -2px;
+            padding: 35px;
+            justify-content: space-between;
+            border-left: 1px solid black;
+            position: relative;
+        }
+
+        ul li a {
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        ul li:hover {
+            background-color: green;
+            /* width: 80px; */
+        }
+
+        ul li::after {
+            content: "";
+            width: 0%;
+            height: 5%;
+            position: absolute;
+            left: 0;
+            background-color: aqua;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        ul li:hover::after {
+            width: 100%;
+        }
+
+        .jack {
+            display: flex;
+            background-color: rgb(20, 241, 20);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .jack img {
+            margin-left: 10%;
+            width: 850px;
+            z-index: 1;
+        }
+
+        .jack button{
+            width: 200px;
+            padding: 30px 0;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;    
+        }
+        .jack span{
+            background: #009688;
+            height: 100%;
+            width: 0%;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+        .jack button:hover span{
+            width: 100%;
+        }
+        .jack button:hover{
+            border: none;
+        }
+
+        .p {
+            z-index: 2;
+            margin-right: -200px;
+            line-height: 1.2;
+            font-size: 30px;
+        }
+
+        /* ......new section..... */
+        .about {
+            /* background: linear-gradient(rgba(55, 120, 241, 0.5)50%, rgba(55, 120, 241, 0.5)50%), url("section-bg.jpg.webp"); */
+            background-image: url(section-bg.jpg.webp);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 800px;
+            position: relative;
+            text-align: center;
+        }
+
+        .man {
+            background-color: #fff;
+            width: 50%;
+            position: absolute;
+            left: 25%;
+            top: 10%;
+            height: 70%;
+            font-size: 30px;
+        }
+
+        .a button {
+            background-color: rgb(20, 241, 20);
+            color: black;
+            margin-top: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            margin-bottom: 30px;
+        }
+
+        .me h5 {
+            margin-top: 40px;
+            color: rgb(20, 241, 20);
+        }
+
+        hr {
+            width: 85%;
+            margin-left: 40px;
+        }
+
+        .web {
+            display: flex;
+        }
+
+        .parent,
+        .parent2 {
+            background-color: rgb(218, 126, 126);
+            width: 100%;
+            padding: 1.5px;
+            border-radius: 5px;
+            height: 8px;
+        }
+
+        .child,
+        .child2 {
+            background-color: rgb(20, 241, 20);
+            width: 50%;
+            padding: 5px;
+            border-radius: 5px;
+            height: -10px;
+        }
+
+        .pa,
+        .pa2 {
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .pa p {
+            margin-left: 22px;
+        }
+
+        .pa2 p {
+            margin-right: 80px;
+        }
+
+        .all {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
+        .all2 {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .parentt3,
+        .parentt4 {
+            background-color: rgb(218, 126, 126);
+            width: 100%;
+            padding: 1.5px;
+            border-radius: 5px;
+            height: 8px;
+        }
+
+        .childd3,
+        .childd4 {
+            background-color: rgb(20, 241, 20);
+            width: 70%;
+            padding: 5px;
+            border-radius: 5px;
+            height: -10px;
+        }
+
+        .paa3,
+        .paa4 {
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .paa3 p {
+            margin-right: 90px;
+        }
+
+        .paa4 p {
+            margin-right: 50px;
+            /* margin-top: 50px; */
+        }
+
+        #para {
+            margin-top: 30px;
+        }
+
+        /* ....................expertise............. */
+        .expertise {
+            text-align: center;
+        }
+
+        .design {
+            display: flex;
+            margin-top: 50px;
+        }
+
+        .inter {
+            background-color: rgb(20, 241, 20);
+            width: 550px;
+            height: 300px;
+            margin-left: 100px;
+        }
+
+        .inter h1 {
+            margin-left: 100px;
+        }
+
+        .inter #h1 {
+            color: rgb(114, 156, 114);
+        }
+
+        #para p {
+            width: 500px;
+            margin-left: 80px;
+            font-size: 20px;
+        }
+
+        /* <!-- ..............Experience........... --> */
+        .experience hr {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .experience {
+            width: 900px;
+            margin-left: 200px;
+        }
+
+        #up {
+            position: absolute;
+            right: 250px;
+            text-decoration: none;
+        }
+
+        #expe {
+            font-size: 40px;
+            margin-left: 80px;
+        }
+
+        .experience1 {
+            width: 900px;
+            margin-left: 1px;
+        }
+
+        #up1 {
+            position: absolute;
+            right: 250px;
+            text-decoration: none;
+        }
+
+        /* ..................creative.............. */
+        .creative {
+            background-color: rgb(20, 241, 20);
+            display: flex;
+            width: 1365px;
+            height: 690px;
+            margin-left: -220px;
+        }
+
+        .create,
+        .create1 {
+            margin-top: 180px;
+        }
+
+        .create1 {
+            margin-left: 100px;
+            font-size: 40px;
+            margin-top: 300px;
+        }
+
+        /* ...............education........... */
+        .education {
+            width: 900px;
+            margin-right: 400px;
+        }
+
+        #up3 {
+            position: absolute;
+            right: 250px;
+            text-decoration: none;
+        }
+
+        #edu {
+            margin-top: 100px;
+            font-size: 50px;
+            margin-left: -130px;
+            margin-bottom: 10px;
+        }
+
+        /* ........image............. */
+        .image {
+            display: flex;
+            margin-left: -200px;
+            width: 228px;
+            height: 228px;
+            margin-top: 100px;
+        }
+
+        /* .................................................... */
+        .drop {
+            background-color: rgb(20, 241, 20);
+            width: 1365px;
+            height: 850px;
+            margin-left: -220px;
+        }
+
+        #last-p {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #last-p hr {
+            width: 1100px;
+        }
+
+        #drop {
+            display: flex;
+        }
+
+        .contact-me {
+            width: 400px;
+            margin-right: 200px;
+        }
+
+        .contact-me a {
+            text-decoration: none;
+        }
+
+        #line {
+            margin-left: 200px;
+        }
+
+        .contact-me button {
+            padding-top: 20px;
+            padding-bottom: 17px;
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color: rgb(20, 241, 20);
+            color: black;
+        }
+
+        #line input {
+            width: 400px;
+            height: 30px;
+            /* background-color: rgb(20, 241, 20); */
+            color: black;
+            border-color: #fff;
+        }
+
+        #line textarea {
+            width: 400px;
+            height: 50px;
+            /* background-color: rgb(20, 241, 20); */
+            color: black;
+        }
+
+        #line button {
+            background-color: black;
+            height: 50px;
+            width: 150px;
+            text-decoration: none;
+            margin-left: 250px;
+        }
+
+        #line button a {
+            color: #fff;
+        }
+
+        #logo img {
+            height: 40px;
+            border-radius: 100%;
+            padding: 10px;
+        }
+
+        .copyrite {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div>
+            <h2 class="logo" style="font-size: 50px">Jack Co.</h2>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a style="text-decoration: underline" href="mailto:ichinonso99@gmail.com">Fire Me Email</a></li>
+        </ul>
+    </div>
+
+    <div class="jack">
+        <div class="p">
+            <h1>Visual Design</h1>
+            <h1>& Art Director</h1>
+            <p class="par">Hi I am jack, focusing</p>
+            <p class="par"> on creating emotional </p>
+            <p class="par">experience</p>
+            <button class="btn"><a style="text-decoration: none" href="#"><span></span>Hire me</a></button>
+        </div>
+        <div class="pp">
+            <img src="hero_right.png.webp" alt="" width="500">
+        </div>
+    </div>
+    <!-- ..........second section.............. -->
+    <div class="about">
+        <div class="man">
+            <div class="me">
+                <h5 id="about">About Me</h5>
+                <p>I'm Creative director based on New </p>
+                    <p>York , who loves clean, simple &</p>
+                    <p>unique design. I also enjoy crafting..</p>
+                </p>
+            </div>
+            <div class="a">
+                <button class="btn"><a style="text-decoration: none" href="mycv/ANUEYIAGU CHINONSO INNOCENT.docx">Download Resume</a></button>
+            </div>
+            <hr>
+            <!-- .....first.... -->
+            <div class="all">
+                <div class="pa">
+                    <p>USER REACHES</p>
+                    <div class="parent">
+                        <div class="child">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- second......... -->
+                <div class="pa2">
+                    <p>WEB DESIGN</p>
+                    <div class="parent2">
+                        <div class="child2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ...............3nd.................. -->
+            <div class="all2">
+                <div class="paa3">
+                    <p>UL DESIGN</p>
+                    <div class="parentt3">
+                        <div class="childd3">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- s4th......... -->
+                <div class="paa4">
+                    <p>ILLUSTRATION</p>
+                    <div class="parentt4">
+                        <div class="childd4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size: 14px" id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+                perspiciatis maxime culpa perferendis
+                pariatur sunt velit ipsum molestias officia est, nemo autem quam debitis exercitationem iure corrupti
+                a, eaque sed!
+            </p>
+
+        </div>
+    </div>
+    <!-- .......................expertise........... -->
+    <div>
+        <div class="expertise">
+            <h1>My Expertise</h1>
+        </div>
+        <div class="design">
+            <div class="inter">
+                <h1 style="margin-top: 80px">User Experience Design</h1> <br><br>
+                <h1 id="h1">User Interface Design</h1><br><br>
+                <h1 id="h1">Web Design</h1>
+            </div>
+            <div id="para">
+                <p>
+                    I'm a 25-years-old Nigerian frontend with abundant experience developing debbuging high qualiti website and solving
+                    difficuld frontend problems with <strong>HTML</strong>, <strong>CSS</strong> and <strong>JS</strong>. Being self-taught, I have build the 
+                    ability to quicky grasp new concpt and apply them in real world situations. I am currently open to new opportunities 
+                </p>
+                <br>
+                <p>
+                    <h2 style="margin-left: 80px">My Techstack: <br><br> <img src="image/html-logo.png" alt="" width="150px"></h2>
+                </p>
+            </div>
+        </div>
+    </div> <br><br><br><br><br><br>
+    <!-- ..............Experience........... -->
+    <h1 id="expe">Experience</h1> <br><br>
+    <div class="experience">
+        <hr>
+        <div><br><br>
+            <h3 style="font-size: 30px">User Experience Designer</h3>
+            <a id="up" href="#">at Colorlib &#8358;</a>
+        </div><br><br>
+        <div>
+            <p>March 2020 - Present</p><br><br>
+            <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec massa velit,
+                varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero varius vulputate.</p>
+        </div>
+    </div><br><br>
+
+    <div class="experience">
+        <hr>
+        <div><br><br>
+            <h3 style="font-size: 30px">UI Designer</h3>
+            <a id="up" href="#">at Colorlib &#8358;</a>
+        </div><br><br>
+        <div>
+            <p>March 2020 - Present</p><br><br>
+            <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec massa velit,
+                varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero varius vulputate.</p>
+        </div><br><br>
+
+        <div class="experience1">
+            <hr>
+            <div><br><br>
+                <h3 style="font-size: 30px">Illustration Artiest</h3>
+                <a id="up1" href="#">at Colorlib &#8358;</a>
+            </div><br><br>
+            <div>
+                <p>March 2020 - Present</p><br><br>
+                <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec massa
+                    velit, varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero varius vulputate.
+                </p>
+            </div><br><br>
+
+            <div class="experience1">
+                <hr>
+                <div><br><br>
+                    <h3 style="font-size: 30px">Graphic Designer</h3>
+                    <a id="up1" href="#">at Colorlib &#8358;</a>
+                </div><br><br>
+                <div>
+                    <p>March 2020 - Present</p><br><br>
+                    <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec
+                        massa velit, varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero varius
+                        vulputate.</p>
+                </div><br><br>
+                <hr>
+                <br><br><br><br><br><br>
+                <!-- ..............creative................ -->
+                <div class="creative">
+
+                    <div class="create">
+                        <img src="jack.co.PNG" alt="">
+                    </div>
+
+                    <div class="create1">
+                        <p>"I help creative <br>
+                            entrepreneurs build better <br>
+                            businesses, maximize <br>
+                            productivity, and cultivate <br>
+                            an engaged community.
+                        </p>
+                    </div>
+                </div>
+                <!-- ..........................Education........................ -->
+                <h1 id="edu">Education</h1> <br><br>
+                <div class="education">
+                    <hr>
+                    <div><br><br>
+                        <h3 style="font-size: 30px">User Experience Designer</h3>
+                        <a id="up3" href="#">at Dalian University &#8358;</a>
+                    </div><br><br>
+                    <div>
+                        <p>March 2020 - Present</p><br><br>
+                        <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec
+                            massa velit, varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero
+                            varius vulputate.</p>
+                    </div>
+                </div><br><br>
+
+                <div class="education">
+                    <hr>
+                    <div><br><br>
+                        <h3 style="font-size: 30px">UI Designer</h3>
+                        <a id="up3" href="#">at Dalian Universityb &#8358;</a>
+                    </div><br><br>
+                    <div>
+                        <p>March 2020 - Present</p><br><br>
+                        <p>Proin laoreet elementum ligula, ac tincidunt lorem accumsan nec. Fusce eget urna ante. Donec
+                            massa velit, varius a accumsan ac, tempor iaculis massa. Sed placerat justo sed libero
+                            varius vulputate.</p>
+                    </div><br><br>
+                    <hr id="portfolio"> <br><br>
+
+                    <div class="image">
+                        <img src="image/cp1.jpg" alt="">
+                        <img src="image/cp2.png" alt="">
+                        <img src="image/cp3.png" alt="">
+                        <img src="image/cp2.png" alt="">
+                    </div>
+                    <!-- ......................................................... -->
+                    <div class="drop">
+                        <div id="last-p">
+                            <h2> <br><br><br>
+                                I’m a designer, based in San Francisco. <br>
+                                Currently a freelancer. You can see my hobbies <br>
+                                on @Jack-Co and some photos on me too.
+                            </h2><br>
+                            <hr><br>
+                        </div>
+                        <div id="drop">
+                            <div id="line">
+                                <h3>DROP A LINE</h3><br>
+                                <input type="text" placeholder="Your Name"><br><br>
+                                <input type="text" placeholder="Email"><br><br>
+                                <input type="text" placeholder="Subject"><br><br>
+                                <textarea name="comment" id="comment" cols="30" rows="10">Message</textarea>
+                                <button><a href="" style="text-decoration: none"><span></span> Send Message</a></button>
+                            </div>
+                            <div class="contact-me">
+                                <h2 id="contact">CONTACT ME</h2><br>
+                                <a href="#">4657 Franklin Avenue, ARCH CAPE</a><br><br>
+                                <a href="callto:+2349151882828">+2349151882828</a><br><br>
+                                <a href="mailto:ichinonso99@gmail.com">ichinonso99@gmail.com</a><br><br>
+                                <button> <a href="mycv/ANUEYIAGU CHINONSO INNOCENT.docx">DOWNLOAD RESUME</a></button><br><br>
+
+                                <div id="logo">
+                                    <a href="https://wa.me/+2349151882828"><img src="image/whatssap.png" alt=""></a>
+                                    <a href="https://mobile.facebook.com/home.php?ref_component=mbasic_home_header&ref_page=XDeviceBasedLoginValidatePinController&paipv=0&eav=AfaGicNZU8pDhM6W2_D9jiUayBbrg3pTpceFLORwQHTzGKcfqLSW7pyQ4TI8EIKeufg&_rdc=1&_rdr&wtsid=rdr_0wJz7XZ63e0RfPlag"><img src="image/fb.png" alt=""></a>
+                                    <a href="https//www.twiter.com"><img src="image/tw.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copyrite">
+                            <p>Copyright ©2023 All rights reserved | This template is made with &hearts; <a href="#">by Colorlib</a>
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <br><br>
+</body>
+
+</html>
